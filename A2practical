@@ -1,0 +1,27 @@
+import java.util.Arrays;/*4535503 */
+
+public class Main {
+    public static void main(String[] args) {
+        int N = 10;
+        int[] shuffled = new int[N];
+        String[] isNotPresent = new String[N];
+        int i=0;
+
+        do{
+            for (String abc: isNotPresent) {
+                abc = "True";
+            }
+           int  r = 1 + ((int) (Math.random() * N) + 1);
+            if(!"True".equals(isNotPresent[r])) {
+                shuffled[i] = r;
+                i++;
+                isNotPresent[r] = "False";
+            }else if(isNotPresent[r].equals("False"))
+            {
+                r = (int)(Math.random() * N) + 1;
+            }System.out.println(Arrays.toString(shuffled));
+            System.out.println(Arrays.toString(isNotPresent));
+        }while(i!=N-1);
+
+    }
+}
